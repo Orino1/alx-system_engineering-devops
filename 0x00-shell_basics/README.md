@@ -19,3 +19,4 @@ And hidden files (starting with .)
 12-file_type is a script that prints the type of the file named iamafile. The file iamafile will be in the /tmp directory when we will run your script
 13-symbolic_link is a script that creat a sybmolik link
 14-copy_html is a a script that copies all the HTML files from the current working directory to the parent of the working directory
+100-lets_mov is a script for moving all file with Upper case to tmp u 
