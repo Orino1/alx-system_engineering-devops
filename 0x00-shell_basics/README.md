@@ -20,3 +20,4 @@ And hidden files (starting with .)
 13-symbolic_link is a script that creat a sybmolik link
 14-copy_html is a a script that copies all the HTML files from the current working directory to the parent of the working directory
 100-lets_mov is a script for moving all file with Upper case to tmp u 
+101-clean_emacs is a script that deletes all files in the current working directory that end with the character ~.
