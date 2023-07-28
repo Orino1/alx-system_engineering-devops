@@ -5,7 +5,7 @@ print_upon_recv_singal()
 {
 	echo "I am invincible!!!"
 }
-trim print_upon_recv_singal SIGTERM
+trap print_upon_recv_singal SIGTERM
 while [ $i == 1 ]
 do
 	echo "To infinity and beyond"
