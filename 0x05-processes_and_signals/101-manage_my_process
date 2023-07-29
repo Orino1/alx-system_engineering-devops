@@ -12,7 +12,7 @@ then
 			pid=$( < /var/run/my_process.pid)
 			kill "$pid"
 			rm /var/run/my_process.pid
-			manage_my_process stopped
+			echo "manage_my_process stopped"
 		;;
 		restart)
 			pid=$( < /var/run/my_process.pid)
@@ -28,3 +28,4 @@ then
 	esac
 else
 	echo "Usage: manage_my_process {start|stop|restart}"
+fi
