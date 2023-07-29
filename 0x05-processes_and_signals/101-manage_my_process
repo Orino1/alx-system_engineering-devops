@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#bash script to Manage my process
+if [ "$#" -gt 0 ]
+then
+	case "$1" in
+		start)
+			./manage_my_process &
+			pgrep -f "manage_my_process" > /var/run/my_process.pid
+			echo "manage_my_process started"
+		;;
+		stop)
+			pid=$( < /var/run/my_process.pid)
+			kill "$pid"
+			rm /var/run/my_process.pid
+			manage_my_process stopped
+		;;
+		restart)
+			pid=$( < /var/run/my_process.pid)
+			kill "$pid"
+			rm /var/run/my_process.pid
+			./manage_my_process &
+			pgrep -f "manage_my_process" > /var/run/my_process.pid
+			echo "manage_my_process restarted"
+		;;
+		*)
+			echo "Usage: manage_my_process {start|stop|restart}"
+		;;
+	esac
+else
+	echo "Usage: manage_my_process {start|stop|restart}"
