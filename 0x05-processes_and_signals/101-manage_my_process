@@ -15,9 +15,7 @@ then
 			echo "manage_my_process stopped"
 		;;
 		restart)
-			pid=$( < /var/run/my_process.pid)
 			kill "$pid"
-			sleep 5
 			rm /var/run/my_process.pid
 			./manage_my_process &
 			pgrep -f "manage_my_process" > /var/run/my_process.pid
