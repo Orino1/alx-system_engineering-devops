@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Bash script that echo a string to my_process file evry two s
+i=1
+while [ $i == 1 ]
+do
+	echo "I am alive!" >> /tmp/my_process
+	sleep 2
+done
+
