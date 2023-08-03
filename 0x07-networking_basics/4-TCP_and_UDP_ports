@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#this is a bash script that display all port bieng used
+netstat -p
+
