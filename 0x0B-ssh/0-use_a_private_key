@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Server details
+SERVER_IP="34.204.101.176"
+USERNAME="ubuntu"
+PRIVATE_KEY_PATH="$HOME/.ssh/school"
+
+# Connect to the server using the specified private key and user
+ssh -i "$PRIVATE_KEY_PATH" "$USERNAME@$SERVER_IP"
