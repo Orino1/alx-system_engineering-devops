@@ -1,7 +1,7 @@
-# SSH Config File
-#
-Host web-01
+# A portion of my ssh config file for my web-01 server
+Host server
 	Hostname 34.204.101.176
 	User ubuntu
 	PasswordAuthentication no
 	IdentityFile ~/.ssh/school
+
