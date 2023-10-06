@@ -14,7 +14,6 @@ echo "server {
 	location /redirect_me {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 	}
-}" > /etc/nginx/sites-available/orino
-ln -s /etc/nginx/sites-available/orino /etc/nginx/sites-enabled
+}" > /etc/nginx/sites-available/default
 service nginx start
 
