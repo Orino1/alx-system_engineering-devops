@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Intsalling nginx with the following:
 # with a GET request (requesting a page) using curl, it must return a page that contains the string Hello World!
-apt update
+apt -y update
 apt -y install nginx
-echo "Hello World!" > index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.html
 service nginx start
+
