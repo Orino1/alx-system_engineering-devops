@@ -1,37 +1,7 @@
 #!/usr/bin/env bash
-
-# Check if the script is run as root or with sudo privileges
-if [ "$(id -u)" != "0" ]; then
-    echo "This script must be run as root or with sudo."
-    exit 1
-fi
-
-# Update the package list and install Nginx with -y flag
-apt-get update
-apt-get install -y nginx
-
-# Create a simple HTML file with "Hello World!" content
-echo "<html><body><h1>Hello World!</h1></body></html>" > /var/www/html/index.html
-
-# Configure Nginx to listen on port 80 and serve the HTML file
-cat <<EOL > /etc/nginx/sites-available/default
-server {
-    listen 80 default_server;
-    server_name _;
-    location / {
-        root /var/www/html;
-        index index.html;
-    }
-}
-EOL
-
-# Restart Nginx without using systemctl
-kill -s HUP $(cat /var/run/nginx.pid)
-
-# Test Nginx by querying it with curl
-if [ "$(curl -s http://localhost)" = "<html><body><h1>Hello World!</h1></body></html>" ]; then
-    echo "Nginx is configured correctly and serving 'Hello World!'"
-else
-    echo "Nginx configuration may have issues."
-fi
-
+# Intsalling nginx with the following:
+# with a GET request (requesting a page) using curl, it must return a page that contains the string Hello World!
+apt update
+apt -y install nginx
+echo "Hello World!" > index.nginx-debian.html
+service nginx start
