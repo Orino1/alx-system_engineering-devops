@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Intsalling nginx as in 1-install_nginx_web_server
+# and configuring the nginx to handle the /redirect_me path
+apt -y update
+apt -y install nginx
+echo "Hello World!" > /var/www/html/index.html
+echo "server {
+	listen 80;
+	server_name orino.tech;
+
+	root /var/www/html;
+	index index.html;
+
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+}" > /etc/nginx/sites-available/orino
+ln -s /etc/nginx/sites-available/orino /etc/nginx/sites-enabled
+service nginx start
+
