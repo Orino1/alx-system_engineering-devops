@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Start Apache so as to return a
-# page conatining Hello Holberton
+# apache daemon wasnt running on the container so i started it
 service apache2 start
+
