@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#!/usr/bin/env bash
+# Intsalling nginx as in 1-install_nginx_web_server
+# and configuring the nginx to handle the /redirect_me path
+# and configuring the nginx to handle a custom 404 page that contains the string Ceci n'est pas une page.
+# and configuring nginx to return a speacial header with the value of hostname.
+apt -y update
+apt -y install nginx
+echo "Hello World!" > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+hsname=$(hostname)
+echo "server {
+	listen 80;
+	add_header X-Served-By '$hsname';
+	root /var/www/html;
+	index index.html;
+
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+
+        error_page 404 /404.html;
+}" > /etc/nginx/sites-available/default
+
