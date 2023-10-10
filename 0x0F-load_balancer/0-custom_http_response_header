@@ -8,10 +8,9 @@ apt -y update
 apt -y install nginx
 echo "Hello World!" > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
-hsname=$(hostname)
 echo "server {
 	listen 80;
-	add_header X-Served-By '$hsname';
+	add_header X-Served-By '$(hostname)';
 	root /var/www/html;
 	index index.html;
 
