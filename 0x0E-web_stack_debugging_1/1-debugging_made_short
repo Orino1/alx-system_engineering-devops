@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# is this a joke????
+sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+service nginx restart
