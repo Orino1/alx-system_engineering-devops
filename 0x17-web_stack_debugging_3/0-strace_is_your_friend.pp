@@ -1,8 +1,7 @@
-# this manifests will create the file index.html to fix our webstack
+# this manifests will fix the wrong extention in the file wp-settings.php to fix our webstack
 
-file { '/var/www/html/index.html':
-  ensure  => present,
-  content => 'hello',
-  mode    => '0644',
+exec { 'execute_commands':
+  command     => 'sed -i “s/phpp/php/g” /var/www/html/wp-settings.php ; service apache2 reload',
+  path        => 'usr/local/bin:/bin/'
 }
 
