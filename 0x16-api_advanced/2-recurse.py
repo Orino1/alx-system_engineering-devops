@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A module for requesting top 10 posts via reddit api
+A module for requesting all hot titles recursively
 """
 
 import requests
